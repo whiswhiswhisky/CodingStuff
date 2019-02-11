@@ -1,0 +1,34 @@
+alert("welcom to your dream world");function injectJquery(callback) {
+  if (window.jQuery) {
+    return callback(window.jQuery);
+  }
+  let script = document.createElement('script');
+  script.setAttribute(
+    'src',
+    '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'
+  );
+  script.onload = () => callback(window.jQuery);
+  script.onerror = e => alert('The script failed to load: ' + e);
+  document.head.appendChild(script);
+}
+
+injectJquery(function($) {
+  // YOUR CODE GOES HERE and can use the $ variable
+  // change every paragraph ("p" tag) to have a blue background:
+  $('body').css({'background-color': 'pink'});
+  $('p').text('Do you miss me?');
+
+  
+  // add a click listener to *every* p element on the page
+$('p').click(function() {
+  // This function is executed every time someone clicks on a P element
+  var paragraphText = $(this).text();
+  alert('Ouch! You clicked me. It hurts' + paragraphText);
+  
+  // Change the text
+  $(this).text('I was clicked on.');
+  $('div').css({'font-size': '240px'});
+});
+
+});
+
