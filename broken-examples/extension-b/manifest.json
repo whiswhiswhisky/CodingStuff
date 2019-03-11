@@ -1,0 +1,13 @@
+{
+  "manifest_version": 2,
+  "name": "broken example B",
+  "version": "1.0",
+
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  },
+
+  "browser_action": {
+}
+}
